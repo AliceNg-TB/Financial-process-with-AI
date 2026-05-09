@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#fff}svg{max-width:100%;height:auto}</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="1200" height="1800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A1A"/>
+      <stop offset="100%" stop-color="#1A0A2E"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7B2FF7"/>
+      <stop offset="100%" stop-color="#5A00E6"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5A00E6"/>
+      <stop offset="100%" stop-color="#9D4EDD"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7B2FF7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7B2FF7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900');
+      text { font-family: 'Noto Sans TC', sans-serif; fill: #FFFFFF; }
+      .title { font-size: 48px; font-weight: 900; letter-spacing: 2px; }
+      .subtitle { font-size: 20px; font-weight: 400; fill: #B8A9D9; }
+      .section-title { font-size: 28px; font-weight: 700; fill: #D4C5F9; }
+      .h3 { font-size: 18px; font-weight: 700; fill: #FFFFFF; }
+      .body { font-size: 14px; font-weight: 400; fill: #B8A9D9; }
+      .small { font-size: 12px; font-weight: 300; fill: #9A8FB8; }
+      .icon-hover { transition: all 0.3s ease; cursor: pointer; }
+      .icon-hover:hover { filter: url(#strongGlow); transform: scale(1.05); transform-origin: center; }
+      .float {
+        animation: float 6s ease-in-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .pulse {
+        animation: pulse 3s ease-in-out infinite;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .dashline {
+        stroke-dasharray: 8 6;
+        animation: dash 20s linear infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.03); }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -280; }
+      }
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1800" fill="url(#bgGrad)"/>
+  
+  <!-- Background glow elements -->
+  <circle cx="150" cy="200" r="200" fill="url(#glowGrad)" opacity="0.3">
+    <animate attributeName="r" values="200;250;200" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="1600" r="250" fill="url(#glowGrad)" opacity="0.2">
+    <animate attributeName="r" values="250;300;250" dur="10s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Header Section -->
+  <g id="header" transform="translate(600, 80)">
+    <circle cx="0" cy="0" r="50" fill="none" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#glow)" class="pulse"/>
+    <circle cx="0" cy="0" r="42" fill="url(#purpleGrad)" opacity="0.2"/>
+    <g class="icon-hover float">
+      <circle cx="0" cy="-5" r="12" fill="#B8A9D9"/>
+      <path d="M-18 15 Q-18 8 0 8 Q18 8 18 15 L18 22 L-18 22 Z" fill="#B8A9D9"/>
+    </g>
+    <text x="0" y="90" text-anchor="middle" class="title">結合AI之財務流程規劃</text>
+   </g>
+
+  <!-- Section 1: 5層思維 Pyramid -->
+  <g id="section1" transform="translate(600, 320)" class="fade-in" style="animation-delay: 0.2s">
+    <text x="0" y="0" text-anchor="middle" class="section-title">5 層思維</text>
+    
+    <!-- Pyramid Levels -->
+    <g transform="translate(0, 40)" class="pulse">
+      <!-- Level 5 - 策略 TOP -->
+      <g class="icon-hover">
+        <polygon points="0,20 -80,80 80,80" fill="url(#purpleGrad)" opacity="0.9" stroke="#9D4EDD" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-30, 55)">
+          <path d="M0 0 L8 0 L8 6 L4 10 L0 6 Z M4 0 L4 -6 L0 -6" stroke="#FFF" fill="none" stroke-width="1.5"/>
+        </g>
+        <text x="10" y="55" class="h3">5.策略</text>
+        <text x="10" y="72" class="small">數據如何幫助決策</text>
+      </g>
+      
+      <!-- Level 4 - 風險 -->
+      <g class="icon-hover">
+        <polygon points="0,80 -120,140 120,140 -80,80 80,80" fill="url(#purpleGrad)" opacity="0.8" stroke="#9D4EDD" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-40, 110)">
+          <polygon points="0,-8 7,4 -7,4" fill="none" stroke="#FFF" stroke-width="1.5"/>
+          <line x1="0" y1="-3" x2="0" y2="1" stroke="#FFF" stroke-width="1.5"/>
+          <circle cx="0" cy="3" r="1" fill="#FFF"/>
+        </g>
+        <text x="15" y="112" class="h3">4.風險</text>
+        <text x="15" y="129" class="small">錯誤發生的原因與可能造成的後果</text>
+      </g>
+      
+      <!-- Level 3 - 數據 -->
+      <g class="icon-hover">
+        <polygon points="0,140 -160,200 160,200 -120,140 120,140" fill="url(#purpleGrad)" opacity="0.7" stroke="#9D4EDD" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-45, 170)">
+          <rect x="-8" y="-6" width="16" height="12" rx="1" fill="none" stroke="#FFF" stroke-width="1.5"/>
+          <line x1="-4" y1="-2" x2="4" y2="-2" stroke="#FFF" stroke-width="1"/>
+          <line x1="-4" y1="2" x2="4" y2="2" stroke="#FFF" stroke-width="1"/>
+        </g>
+        <text x="15" y="172" class="h3">3.數據</text>
+        <text x="15" y="189" class="small">閱讀資產負債表/損益表/現金流量表</text>
+      </g>
+      
+      <!-- Level 2 - 營運 -->
+      <g class="icon-hover">
+        <polygon points="0,200 -200,260 200,260 -160,200 160,200" fill="url(#purpleGrad)" opacity="0.6" stroke="#9D4EDD" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-50, 230)">
+          <circle cx="-4" cy="0" r="3" fill="none" stroke="#FFF" stroke-width="1.5"/>
+          <circle cx="4" cy="0" r="3" fill="none" stroke="#FFF" stroke-width="1.5"/>
+          <circle cx="0" cy="-5" r="3" fill="none" stroke="#FFF" stroke-width="1.5"/>
+        </g>
+        <text x="15" y="232" class="h3">2.營運</text>
+        <text x="15" y="249" class="small">做什麼、誰做、何時做</text>
+      </g>
+      
+      <!-- Level 1 - 法規遵循 BASE -->
+      <g class="icon-hover">
+        <polygon points="0,260 -240,320 240,320 -200,260 200,260" fill="url(#purpleGrad)" opacity="0.5" stroke="#9D4EDD" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-55, 290)">
+          <rect x="-6" y="-8" width="12" height="16" rx="1" fill="none" stroke="#FFF" stroke-width="1.5"/>
+          <line x1="-3" y1="-4" x2="3" y2="-4" stroke="#FFF" stroke-width="1"/>
+          <line x1="-3" y1="0" x2="3" y2="0" stroke="#FFF" stroke-width="1"/>
+          <line x1="-3" y1="4" x2="3" y2="4" stroke="#FFF" stroke-width="1"/>
+        </g>
+        <text x="15" y="292" class="h3">1.法規遵循</text>
+        <text x="15" y="309" class="small">法規、稅務、期限</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 2: 財務流程架構 -->
+  <g id="section2" transform="translate(600, 780)" class="fade-in" style="animation-delay: 0.4s">
+    <text x="0" y="0" text-anchor="middle" class="section-title">財務流程架構</text>
+    
+    <!-- Connection lines -->
+    <g stroke="url(#purpleGrad2)" stroke-width="1.5" opacity="0.4" fill="none">
+      <line x1="0" y1="80" x2="-280" y2="40" class="dashline"/>
+      <line x1="0" y1="80" x2="-280" y2="140" class="dashline"/>
+      <line x1="0" y1="80" x2="-280" y2="240" class="dashline"/>
+      <line x1="0" y1="80" x2="280" y2="40" class="dashline"/>
+      <line x1="0" y1="80" x2="280" y2="140" class="dashline"/>
+      <line x1="0" y1="80" x2="280" y2="240" class="dashline"/>
+    </g>
+    
+    <!-- Central Circle -->
+    <g transform="translate(0, 80)">
+      <circle r="70" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse"/>
+      <circle r="60" fill="none" stroke="#9D4EDD" stroke-width="2" opacity="0.6"/>
+      <g class="float">
+        <path d="M-15 -10 Q-20 0 -15 10 M-15 -10 Q-10 -15 0 -15 Q10 -15 15 -10 M15 -10 Q20 0 15 10 M-15 10 Q-10 15 0 15 Q10 15 15 10 M-5 -5 Q0 -8 5 -5 M-5 5 Q0 8 5 5" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="-8" cy="-2" r="2" fill="#FFF"/>
+        <circle cx="8" cy="-2" r="2" fill="#FFF"/>
+      </g>
+      <text x="0" y="45" text-anchor="middle" class="h3">財務流程架構</text>
+    </g>
+    
+    <!-- Left Modules -->
+    <g transform="translate(-280, 0)">
+      <!-- 01 法規資料庫 -->
+      <g transform="translate(0, 40)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <rect x="-8" y="-8" width="16" height="16" rx="2" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+          <line x1="-4" y1="-3" x2="4" y2="-3" stroke="#9D4EDD" stroke-width="1"/>
+          <line x1="-4" y1="0" x2="4" y2="0" stroke="#9D4EDD" stroke-width="1"/>
+          <line x1="-4" y1="3" x2="4" y2="3" stroke="#9D4EDD" stroke-width="1"/>
+        </g>
+        <text x="-50" y="-5" class="h3">01 法規資料庫</text>
+        <text x="-50" y="12" class="small">即時法規庫、文件、案例</text>
+      </g>
+      
+      <!-- 02 行事曆與任務管理 -->
+      <g transform="translate(0, 140)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <rect x="-8" y="-8" width="10" height="12" rx="1" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+          <line x1="-6" y1="-4" x2="-6" y2="-2" stroke="#9D4EDD" stroke-width="1.5"/>
+          <line x1="0" y1="-4" x2="0" y2="-2" stroke="#9D4EDD" stroke-width="1.5"/>
+          <rect x="-4" y="0" width="2" height="2" fill="#9D4EDD"/>
+        </g>
+        <text x="-50" y="-5" class="h3">02 行事曆與任務管理</text>
+        <text x="-50" y="12" class="small">截止日、分工、檢視</text>
+      </g>
+      
+      <!-- 03 SOP與流程 -->
+      <g transform="translate(0, 240)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <polyline points="-6,-6 -6,6 6,6 6,-6" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+          <polyline points="-3,-2 0,1 3,-2" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+        </g>
+        <text x="-50" y="-5" class="h3">03 SOP與流程</text>
+        <text x="-50" y="12" class="small">檢查清單、標準化、新人培訓</text>
+      </g>
+    </g>
+    
+    <!-- Right Modules -->
+    <g transform="translate(280, 0)">
+      <!-- 04 分析與洞察 -->
+      <g transform="translate(0, 40)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <rect x="-8" y="2" width="3" height="6" fill="#9D4EDD"/>
+          <rect x="-3" y="-2" width="3" height="10" fill="#9D4EDD"/>
+          <rect x="2" y="-6" width="3" height="14" fill="#9D4EDD"/>
+          <polyline points="-8,-4 -3,-6 2,-3" fill="none" stroke="#B8A9D9" stroke-width="1.5"/>
+        </g>
+        <text x="-50" y="-5" class="h3">04 分析與洞察</text>
+        <text x="-50" y="12" class="small">儀表板、變動、基準比較</text>
+      </g>
+      
+      <!-- 05 AI層 -->
+      <g transform="translate(0, 140)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <circle cx="0" cy="0" r="8" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+          <circle cx="-3" cy="-2" r="1.5" fill="#9D4EDD"/>
+          <circle cx="3" cy="-2" r="1.5" fill="#9D4EDD"/>
+          <path d="M-4 3 Q0 6 4 3" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+        </g>
+        <text x="-50" y="-5" class="h3">05 AI層</text>
+        <text x="-50" y="12" class="small">提示庫、AI解釋、分析</text>
+      </g>
+      
+      <!-- 06 檔案基礎 -->
+      <g transform="translate(0, 240)" class="icon-hover">
+        <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(-75, 0)">
+          <path d="M-8 6 L-8 -4 L-2 -8 L6 -8 L6 6 Z" fill="none" stroke="#9D4EDD" stroke-width="1.5"/>
+          <line x1="-4" y1="-4" x2="2" y2="-4" stroke="#9D4EDD" stroke-width="1"/>
+        </g>
+        <text x="-50" y="-5" class="h3">06 檔案基礎</text>
+        <text x="-50" y="12" class="small">命名、目錄、標準數據</text>
+      </g>
+    </g>
+    
+    <!-- Bottom Bar -->
+    <g transform="translate(0, 330)">
+      <rect x="-200" y="-18" width="400" height="36" rx="18" fill="url(#purpleGrad)" opacity="0.3" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="5" text-anchor="middle" class="h3">基礎：檔案結構與數據</text>
+    </g>
+    
+    <!-- Right side description -->
+    <g transform="translate(480, 140)">
+      <rect x="-110" y="-60" width="220" height="120" rx="12" fill="#1A0F2E" opacity="0.6" stroke="url(#purpleGrad)" stroke-width="1"/>
+      <g transform="translate(0, -25)" class="float">
+        <path d="M-12 -8 Q-16 0 -12 8 M-12 -8 Q-8 -12 0 -12 Q8 -12 12 -8 M12 -8 Q16 0 12 8 M-12 8 Q-8 12 0 12 Q8 12 12 8" fill="none" stroke="#9D4EDD" stroke-width="2" stroke-linecap="round" filter="url(#softGlow)"/>
+      </g>
+      <text x="0" y="15" text-anchor="middle" class="h3">財務流程架構</text>
+      <text x="0" y="35" text-anchor="middle" class="small">幫助從法規遵循-營運</text>
+      <text x="0" y="52" text-anchor="middle" class="small">升級到分析-策略</text>
+    </g>
+  </g>
+
+  <!-- Section 3: 部署路徑 Timeline -->
+  <g id="section3" transform="translate(600, 1180)" class="fade-in" style="animation-delay: 0.6s">
+    <text x="0" y="0" text-anchor="middle" class="section-title">部署路徑</text>
+    
+    <!-- Timeline line -->
+    <line x1="-500" y1="50" x2="500" y2="50" stroke="url(#purpleGrad)" stroke-width="3" opacity="0.5" filter="url(#softGlow)"/>
+    
+    <!-- Stage 1 -->
+    <g transform="translate(-400, 50)" class="icon-hover">
+      <circle cx="0" cy="0" r="15" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse"/>
+      <text x="0" y="0" text-anchor="middle" dy="5" class="h3" fill="#FFF">1</text>
+      <rect x="-80" y="25" width="160" height="55" rx="10" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="45" text-anchor="middle" class="h3">階段1</text>
+      <text x="0" y="62" text-anchor="middle" class="small">標準化檔案+期限地圖</text>
+    </g>
+    
+    <!-- Stage 2 -->
+    <g transform="translate(-200, 50)" class="icon-hover">
+      <circle cx="0" cy="0" r="15" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse" style="animation-delay: 0.3s"/>
+      <text x="0" y="0" text-anchor="middle" dy="5" class="h3" fill="#FFF">2</text>
+      <rect x="-80" y="25" width="160" height="55" rx="10" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="45" text-anchor="middle" class="h3">階段2</text>
+      <text x="0" y="62" text-anchor="middle" class="small">建立即時法規庫</text>
+    </g>
+    
+    <!-- Stage 3 -->
+    <g transform="translate(0, 50)" class="icon-hover">
+      <circle cx="0" cy="0" r="15" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse" style="animation-delay: 0.6s"/>
+      <text x="0" y="0" text-anchor="middle" dy="5" class="h3" fill="#FFF">3</text>
+      <rect x="-80" y="25" width="160" height="55" rx="10" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="45" text-anchor="middle" class="h3">階段3</text>
+      <text x="0" y="62" text-anchor="middle" class="small">SOP化3-5個核心流程</text>
+    </g>
+    
+    <!-- Stage 4 -->
+    <g transform="translate(200, 50)" class="icon-hover">
+      <circle cx="0" cy="0" r="15" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse" style="animation-delay: 0.9s"/>
+      <text x="0" y="0" text-anchor="middle" dy="5" class="h3" fill="#FFF">4</text>
+      <rect x="-80" y="25" width="160" height="55" rx="10" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="45" text-anchor="middle" class="h3">階段4</text>
+      <text x="0" y="62" text-anchor="middle" class="small">建立提示庫、每日應用AI</text>
+    </g>
+    
+    <!-- Stage 5+ -->
+    <g transform="translate(400, 50)" class="icon-hover">
+      <circle cx="0" cy="0" r="15" fill="url(#purpleGrad)" filter="url(#glow)" class="pulse" style="animation-delay: 1.2s"/>
+      <text x="0" y="0" text-anchor="middle" dy="5" class="h3" fill="#FFF">5+</text>
+      <rect x="-80" y="25" width="160" height="55" rx="10" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+      <text x="0" y="45" text-anchor="middle" class="h3">階段5+</text>
+      <text x="0" y="62" text-anchor="middle" class="small">優化、檢視、培訓團隊</text>
+    </g>
+  </g>
+
+  <!-- 最終目標 -->
+  <g id="final" transform="translate(600, 1400)" class="fade-in" style="animation-delay: 0.8s">
+    <text x="0" y="0" text-anchor="middle" class="section-title">最終目標</text>
+    
+    <g transform="translate(0, 60)">
+      <!-- 不漏工作 -->
+      <g transform="translate(-450, 0)" class="icon-hover">
+        <rect x="-100" y="-35" width="200" height="90" rx="15" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(0, -10)">
+          <rect x="-12" y="-12" width="24" height="24" rx="12" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+          <polyline points="-6,0 -2,4 6,-4" fill="none" stroke="#9D4EDD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="0" y="25" text-anchor="middle" class="h3">不漏工作</text>
+      </g>
+      
+      <!-- 不觸法 -->
+      <g transform="translate(-150, 0)" class="icon-hover">
+        <rect x="-100" y="-35" width="200" height="90" rx="15" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(0, -10)">
+          <rect x="-8" y="-12" width="16" height="20" rx="2" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+          <circle cx="0" cy="4" r="2" fill="#9D4EDD"/>
+          <path d="M-10 -6 L-6 -10 M6 -10 L10 -6" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+        </g>
+        <text x="0" y="25" text-anchor="middle" class="h3">不觸法</text>
+      </g>
+      
+      <!-- 不依賴個人 -->
+      <g transform="translate(150, 0)" class="icon-hover">
+        <rect x="-100" y="-35" width="200" height="90" rx="15" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(0, -10)">
+          <circle cx="-6" cy="-4" r="4" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+          <circle cx="6" cy="-4" r="4" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+          <path d="M-12 6 Q-12 2 -8 2 L-4 2 Q0 2 0 6 M12 6 Q12 2 8 2 L4 2 Q0 2 0 6" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+        </g>
+        <text x="0" y="25" text-anchor="middle" class="h3">不依賴個人</text>
+      </g>
+      
+      <!-- 讓數據成為決策依據 -->
+      <g transform="translate(450, 0)" class="icon-hover">
+        <rect x="-100" y="-35" width="200" height="90" rx="15" fill="#1A0F2E" stroke="url(#purpleGrad)" stroke-width="2" filter="url(#softGlow)"/>
+        <g transform="translate(0, -10)">
+          <circle cx="0" cy="0" r="12" fill="none" stroke="#9D4EDD" stroke-width="2"/>
+          <polyline points="-6,-2 0,4 6,-2" fill="none" stroke="#9D4EDD" stroke-width="2" stroke-linecap="round"/>
+          <line x1="0" y1="-8" x2="0" y2="4" stroke="#9D4EDD" stroke-width="2"/>
+        </g>
+        <text x="0" y="20" text-anchor="middle" class="h3">讓數據成為</text>
+        <text x="0" y="38" text-anchor="middle" class="h3">決策依據</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Decorative floating particles -->
+  <g opacity="0.4">
+    <circle cx="100" cy="500" r="3" fill="#7B2FF7" class="float">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="400" r="2" fill="#9D4EDD" class="float" style="animation-delay: 1s">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="1300" r="2.5" fill="#7B2FF7" class="float" style="animation-delay: 2s">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1050" cy="1000" r="3" fill="#5A00E6" class="float" style="animation-delay: 1.5s">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
+</body>
+</html>

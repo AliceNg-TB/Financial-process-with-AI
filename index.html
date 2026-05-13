@@ -1,11 +1,79 @@
+把 logo 釘在右上角，只要加 3 行 CSS 就好。你的 logo SVG 已經有了，我幫你補上定位。
+
+### 1. 在 `<style>` 裡加這段
+```css
+.tb-logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  z-index: 999;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+}
+.tb-logo text {
+  font-family: 'Georgia', serif;
+  font-weight: 800;
+  font-size: 24px;
+  fill: url(#tbGrad);
+  letter-spacing: -1px;
+}
+```
+
+### 2. 把 logo SVG 移到 `<body>` 最前面
+這樣確保它在最上層，不會被主 SVG 蓋住。
+
+### 完整可直接跑的版本
+```html
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#fff}svg{max-width:100%;height:auto}</style>
+<style>
+  body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#fff
+  }
+  svg{max-width:100%;height:auto}
+  
+  /* TB Art Logo 右上角定位 */
+  .tb-logo {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    z-index: 999;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+  }
+  .tb-logo text {
+    font-family: 'Georgia', serif;
+    font-weight: 800;
+    font-size: 24px;
+    fill: url(#tbGrad);
+    letter-spacing: -1px;
+  }
+</style>
 </head>
 <body>
+
+<!-- TB Art Logo -->
+<svg class="tb-logo" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="tbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A90E2" />
+      <stop offset="100%" stop-color="#1ABC9C" />
+    </linearGradient>
+  </defs>
+  <circle cx="24" cy="24" r="23" fill="#fff" stroke="url(#tbGrad)" stroke-width="2"/>
+  <text x="24" y="32" text-anchor="middle">TB</text>
+</svg>
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="1200" height="1800">
   <defs>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
@@ -410,18 +478,4 @@
   <!-- Decorative floating particles -->
   <g opacity="0.4">
     <circle cx="100" cy="500" r="3" fill="#7B2FF7" class="float">
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="400" r="2" fill="#9D4EDD" class="float" style="animation-delay: 1s">
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="150" cy="1300" r="2.5" fill="#7B2FF7" class="float" style="animation-delay: 2s">
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="6s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1050" cy="1000" r="3" fill="#5A00E6" class="float" style="animation-delay: 1.5s">
-      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-</svg>
-</body>
-</html>
+      <animate attributeName="
